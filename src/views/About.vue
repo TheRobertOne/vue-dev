@@ -4,10 +4,13 @@
   </div>
 </template>
 <script>
+import share from "@/common/js/share";
+share();
+
 export default {
   name: "About",
   created: function() {
-    axios.get('/user/fuck')
+    // axios.get("/user/fuck");
   }
 };
 </script>
