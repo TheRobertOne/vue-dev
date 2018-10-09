@@ -1,2 +1,2 @@
-export const ADDNUM = 'ADDNUM'
-export const LOSENUM = 'LOSENUM'
+export const ADDNUM = "ADDNUM";
+export const LOSENUM = "LOSENUM";
