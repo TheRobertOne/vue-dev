@@ -1,13 +1,10 @@
-import {
-    ADDNUM,
-    LOSENUM
-} from './mutations-type'
+import { ADDNUM, LOSENUM } from "./mutations-type";
 
 export default {
-    addNum({ commit, state }, num) {
-        commit(ADDNUM, num)
-    },
-    loseNum({ commit, state }, num) {
-        commit(LOSRNUM, num)
-    }
-}
+  addNum({ commit, state }, num) {
+    commit(ADDNUM, num);
+  },
+  loseNum({ commit, state }, num) {
+    commit(LOSENUM, num);
+  }
+};
