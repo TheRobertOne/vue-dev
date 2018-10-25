@@ -1,9 +1,17 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <!--<div id="nav">-->
+      <!--<router-link to="/">主页</router-link> |-->
+      <!--<router-link to="/course_url_search">课件信息查询</router-link>-->
+    <!--</div>-->
+    <el-menu default-active="1" class="el-menu-demo" mode="horizontal">
+      <el-menu-item index="1">
+        <router-link to="/">主页</router-link>
+      </el-menu-item>
+      <el-menu-item index="2">
+        <router-link to="/course_url_search">订单管理</router-link>
+      </el-menu-item>
+    </el-menu>
     <router-view/>
   </div>
 </template>

@@ -5,18 +5,17 @@ import store from "./store/index";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 
-import initWechat from "./common/js/initWechat";
-import maidian from "./common/js/maidian";
-
+// import initWechat from "./common/js/initWechat";
+// import maidian from "./common/js/maidian";
 window.onload = function() {
-  initWechat();
+  // initWechat();
   // share();
-  maidian(); // 埋点
+  // maidian(); // 埋点
 };
 
 Vue.use(ElementUI);
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = true;
 
 new Vue({
   router,
