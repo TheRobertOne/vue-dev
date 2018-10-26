@@ -1,6 +1,18 @@
 <template>
   <div class="about">
     <h1>This is an search table</h1>
+    <el-select
+      v-model="search_condition.subject"
+      filterable
+      @change="subjectChange"
+      placeholder="请选择课件类型">
+      <el-option
+        v-for="item in subjectList"
+        :key="item.name"
+        :label="item.name"
+        :value="item.name">
+      </el-option>
+    </el-select>
     <el-input class="input" v-model="search_condition.slide_url" placeholder="搜索关键字"></el-input>
     <el-button icon="el-icon-search" circle @click="search"></el-button>
     <div style="padding: 20px;">
@@ -44,14 +56,23 @@ export default {
     data() {
       return {
           tableData: [],
+          subjectList: [],
           search_condition: {
+              subject: '',
               slide_url: ''
           },
           loading: false
       }
     },
   created: function() {
-    this.search();
+    const that = this;
+    this.loading = true;
+    axios.get('http://192.168.30.245:7766/subject')
+      .then(function(res) {
+        that.subjectList = res;
+          // this.search()
+          that.loading = false;
+      })
   },
     methods: {
       search() {
@@ -63,6 +84,9 @@ export default {
               that.tableData = res;
               that.loading = false;
           })
+      },
+      subjectChange(value) {
+          this.search_condition.subject = value;
       }
     }
 };
