@@ -2,15 +2,15 @@
   <div class="about">
     <h1>This is an search table</h1>
     <el-select
-      v-model="search_condition.subject"
+      v-model="search_condition.id"
       filterable
       @change="subjectChange"
       placeholder="请选择课件类型">
       <el-option
         v-for="item in subjectList"
-        :key="item.name"
+        :key="item.id"
         :label="item.name"
-        :value="item.name">
+        :value="item.id">
       </el-option>
     </el-select>
     <el-input class="input" v-model="search_condition.slide_url" placeholder="搜索关键字"></el-input>
@@ -58,7 +58,7 @@ export default {
           tableData: [],
           subjectList: [],
           search_condition: {
-              subject: '',
+              id: '',
               slide_url: ''
           },
           loading: false
@@ -67,7 +67,7 @@ export default {
   created: function() {
     const that = this;
     this.loading = true;
-    axios.get('http://192.168.30.245:7766/subject')
+    axios.get('http://10.251.251.53:7766/subject')
       .then(function(res) {
         that.subjectList = res;
           // this.search()
@@ -78,15 +78,15 @@ export default {
       search() {
           const that = this;
           this.loading = true;
-          axios.get('http://192.168.30.245:7766/reg', {
+          axios.get('http://10.251.251.53:7766/reg', {
               params: that.search_condition
           }).then(function(res) {
-              that.tableData = res;
+              that.tableData = res.date;
               that.loading = false;
           })
       },
       subjectChange(value) {
-          this.search_condition.subject = value;
+          this.search_condition.id = value;
       }
     }
 };
