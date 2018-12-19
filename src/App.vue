@@ -11,6 +11,9 @@
       <el-menu-item index="2">
         <router-link to="/course_url_search">订单管理</router-link>
       </el-menu-item>
+      <el-menu-item index="3">
+        <router-link to="/libu">励步课件查询</router-link>
+      </el-menu-item>
     </el-menu>
     <router-view/>
   </div>
